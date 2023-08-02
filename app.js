@@ -10,7 +10,7 @@ app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
 app.use((req, res) => {
-  res.sendStatus(404).send("Page not found");
+  res.sendFile(__dirname + "/views/pg404.html");
 });
 
 app.listen(3000);
