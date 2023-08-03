@@ -6,6 +6,7 @@ html(lang="en")
         title #{pageTitle}   
         link(rel="stylesheet", href="/css/main.css")
         link(rel="stylesheet", href="/css/product.css")   
+        link(rel="stylesheet", href="/css/forms.css")
     body 
         header.main-header 
             nav.main-header__nav
@@ -17,8 +18,8 @@ html(lang="en")
         main 
             form.product-form(action="/admin/add-product", method="post") 
                 div.form-control 
-                label(for="title") Title
-                input(type="text", name="title")#title 
-                
+                    label(for="title") Title
+                    input(type="text", name="title")#title 
+                    
 
                 button.btn(type="submit") Add Product
