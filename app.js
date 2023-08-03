@@ -1,10 +1,12 @@
-const http = require("http");
 const path = require("path");
 const adminData = require("./routes/admin");
 const bodyParser = require("body-parser");
 const express = require("express");
 const shopRoutes = require("./routes/shop");
 const app = express();
+app.set("view engine", "pug");
+app.set("views", "views");
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 
