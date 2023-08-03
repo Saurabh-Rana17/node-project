@@ -3,8 +3,16 @@ const adminData = require("./routes/admin");
 const bodyParser = require("body-parser");
 const express = require("express");
 const shopRoutes = require("./routes/shop");
+const { engine } = require("express-handlebars");
 const app = express();
-app.set("view engine", "pug");
+
+app.engine(
+  "hbs",
+  engine({
+    defaultLayout: null,
+  })
+);
+app.set("view engine", "hbs");
 app.set("views", "views");
 
 app.use(express.static(path.join(__dirname, "public")));
