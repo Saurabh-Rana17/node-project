@@ -6,15 +6,7 @@ const shopRoutes = require("./routes/shop");
 const { engine } = require("express-handlebars");
 const app = express();
 
-app.engine(
-  "hbs",
-  engine({
-    layoutsDir: "views/layout",
-    defaultLayout: "main-layout",
-    extname: "hbs",
-  })
-);
-app.set("view engine", "hbs");
+app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -24,7 +16,7 @@ app.use("/admin", adminData.routes);
 app.use(shopRoutes);
 
 app.use((req, res) => {
-  res.render("404", { pageTitle: "not found" });
+  res.render("404", { pageTitle: "not found", path: "" });
 });
 
 app.listen(3000);
