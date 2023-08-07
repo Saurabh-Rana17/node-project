@@ -24,12 +24,12 @@ module.exports = class Product {
       });
     });
   }
-  static fetchall() {
+  static fetchall(cb) {
     fs.readFile(p, (err, fileContent) => {
       if (err) {
-        return [];
+        cb([]);
       }
-      return JSON.parse(fileContent);
+      cb(JSON.parse(fileContent));
     });
     return products;
   }
